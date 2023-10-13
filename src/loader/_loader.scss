@@ -22,7 +22,7 @@ body {
 
   & > joda-content {
     opacity: 0;
-    transition: opacity 0.25s;
+    //transition: opacity 0.25s;(Do not use - too slow)
   }
 
   &.loaded {
