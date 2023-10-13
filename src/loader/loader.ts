@@ -1,6 +1,6 @@
 import {ka_create_element} from "@kasimirjs/embed";
 
-const indexName = "liscom_hit_index";
+const indexName = "liscom_loader_hit_index";
 let state = sessionStorage.getItem(indexName);
 if (state === null) {
     sessionStorage.setItem(indexName, "0");
@@ -27,7 +27,7 @@ export function initLoader() {
 
             document.querySelector("body").appendChild(loader);
         }
-    }, hitIndex === 1 ? 10 : 350); // Wait 350 on subsequent requests to prevent flickering
+    }, hitIndex === 1 ? 0 : 350); // Wait 350 on subsequent requests to prevent flickering
 }
 
 
