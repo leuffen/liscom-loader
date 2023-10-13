@@ -1,3 +1,4 @@
+import {ka_create_element} from "@kasimirjs/embed";
 
 const indexName = "liscom_hit_index";
 let state = sessionStorage.getItem(indexName);
@@ -6,7 +7,7 @@ if (state === null) {
 }
 sessionStorage.setItem(indexName, "" + (parseInt(sessionStorage.getItem(indexName) ?? "0") + 1));
 
-export const hitIndex = parseInt(sessionStorage.getItem(indexName) ?? "0");
+export const hitIndex =  1; //parseInt(sessionStorage.getItem(indexName) ?? "0");
 
 export function initLoader() {
     let interval = setInterval(() => {
@@ -16,15 +17,13 @@ export function initLoader() {
             clearInterval(interval);
 
             let img = document.querySelector("img").cloneNode(true) as HTMLImageElement;
-            let loader = document.createElement("div");
-            loader.classList.add("loader");
-            loader.appendChild(img);
+            let loader = ka_create_element("div", {class: "loader"});
+            let loaderImg =  ka_create_element("div", {class: "loader-img"}, [img], loader);
             img.setAttribute("class", "");
             img.setAttribute("loading", "eager");
 
-            let loaderBar = document.createElement("div");
-            loaderBar.classList.add("loader-bar");
-            loader.appendChild(loaderBar);
+            let loaderBar = ka_create_element("div", {class: "loader-bar"}, [], loader)
+
 
             document.querySelector("body").appendChild(loader);
         }
