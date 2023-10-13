@@ -7,7 +7,7 @@ if (state === null) {
 }
 sessionStorage.setItem(indexName, "" + (parseInt(sessionStorage.getItem(indexName) ?? "0") + 1));
 
-export const hitIndex =  1; //parseInt(sessionStorage.getItem(indexName) ?? "0");
+export const hitIndex =  parseInt(sessionStorage.getItem(indexName) ?? "0");
 
 export function initLoader() {
     let interval = setInterval(() => {
