@@ -12,7 +12,7 @@ export const hitIndex =  parseInt(sessionStorage.getItem(indexName) ?? "0");
 export function initLoader() {
     let interval = setInterval(() => {
         // Detect if body is loaded
-        if (document.querySelector("body")) {
+        if (document.body) {
             // Cancel interval
             clearInterval(interval);
 
