@@ -27,6 +27,7 @@ export function initLoader() {
                 return;
             }
             img.classList.remove("d-none");
+            img.style.display = "block";
 
             let loader = ka_create_element("div", {class: "loader"});
             let loaderImg =  ka_create_element("div", {class: "loader-img"}, [img], loader);
