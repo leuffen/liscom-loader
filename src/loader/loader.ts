@@ -16,12 +16,18 @@ export function initLoader() {
             // Cancel interval
             clearInterval(interval);
 
-            let img = document.querySelector("img")?.cloneNode(true) as HTMLImageElement;
+
+            let img = document.querySelector("img.loader-image")?.cloneNode(true) as HTMLImageElement;
+            if (img === undefined) {
+                 img = document.querySelector("img")?.cloneNode(true) as HTMLImageElement;
+            }
 
             if (img === undefined) {
                 console.warn("[liscom-loader] No image found to use as loader.");
                 return;
             }
+            img.classList.remove("d-none");
+
             let loader = ka_create_element("div", {class: "loader"});
             let loaderImg =  ka_create_element("div", {class: "loader-img"}, [img], loader);
             img.setAttribute("class", "");
